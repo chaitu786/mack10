@@ -12,9 +12,6 @@ UserRouter.post("/signup",async(req,res)=>{
         console.log(addresses);
     })
 
-    if(password.length<8){
-        return res.status(200).send({message: "required morethan 8 characters"})
-    }
     const { message, status } = await User_Registration(name,email,password,ip_address)
     if(status=="exists"){
         return res.status(200).send({ message, status });
